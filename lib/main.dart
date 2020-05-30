@@ -8,10 +8,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Expenses',
       home: MyHomePage(),
-      // theme: ThemeData(
-      //   primarySwatch: Colors.white,
-      //   visualDensity: VisualDensity.adaptivePlatformDensity,
-      // ),
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
     );
   }
 }
@@ -26,7 +26,7 @@ class MyHomePage extends StatelessWidget {
           Container(
             width: double.infinity,
             child: Card(
-              color: Colors.blue,
+              color: Colors.green,
               child: Text('Chart'),
               elevation: 5,
             ),
