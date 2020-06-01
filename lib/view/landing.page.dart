@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import '../model/transaction.dart';
 
 class LandingPage extends StatelessWidget {
@@ -32,15 +33,28 @@ class LandingPage extends StatelessWidget {
               child: Row(children: <Widget>[
                 Container(
                   margin: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-                  child: Text(transaction.amount.toString()),
+                  child: Text(
+                    'R ${transaction.amount}',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.green),
+                  ),
                   decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black, width: 2)),
+                      border: Border.all(color: Colors.green, width: 2)),
                   padding: EdgeInsets.all(10),
                 ),
-                Column(children: <Widget>[
-                  Text(transaction.title),
-                  Text(transaction.date.toString()),
-                ])
+                Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(transaction.title,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 16)),
+                      Text(
+                        DateFormat.yMMMd().format(transaction.date),
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                    ])
               ]),
             );
           }).toList())
