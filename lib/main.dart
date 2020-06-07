@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'view/landing.page.dart';
+import 'widgets/landing.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Expenses',
-      home: LandingPage(),
+      home: Landing(),
       theme: ThemeData(
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
