@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class CreateTransaction extends StatelessWidget {
+class TransactionsCreation extends StatelessWidget {
   final Function createTransaction;
   final titleController = TextEditingController();
   final amountController = TextEditingController();
 
-  CreateTransaction(this.createTransaction);
+  TransactionsCreation(this.createTransaction);
 
   @override
   Widget build(BuildContext context) {

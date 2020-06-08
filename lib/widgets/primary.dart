@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'transactionService.dart';
+import 'Transactions/transactionsMain.dart';
 
-class Landing extends StatelessWidget {
+
+class Primary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +20,7 @@ class Landing extends StatelessWidget {
               elevation: 5,
             ),
           ),
-          TransactionService()
+          TransactionsMain()
         ],
       ),
     );

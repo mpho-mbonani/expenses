@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../model/transaction.dart';
+import '../../model/transaction.dart';
 
-class TransactionList extends StatelessWidget {
+class TransactionsList extends StatelessWidget {
   final List<Transaction> transactions;
-  TransactionList(this.transactions);
+  TransactionsList(this.transactions);
   @override
   Widget build(BuildContext context) {
     return Column(

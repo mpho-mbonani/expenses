@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'widgets/landing.dart';
+import 'widgets/primary.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Expenses',
-      home: Landing(),
+      home: Primary(),
       theme: ThemeData(
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
