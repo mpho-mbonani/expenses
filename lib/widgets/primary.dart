@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Transactions/transactionsMain.dart';
 
-
 class Primary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -9,19 +8,21 @@ class Primary extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Container(
-            width: double.infinity,
-            child: Card(
-              color: Colors.green,
-              child: Text('Chart'),
-              elevation: 5,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Container(
+              width: double.infinity,
+              child: Card(
+                color: Colors.green,
+                child: Text('Chart'),
+                elevation: 5,
+              ),
             ),
-          ),
-          TransactionsMain()
-        ],
+            TransactionsMain()
+          ],
+        ),
       ),
     );
   }
