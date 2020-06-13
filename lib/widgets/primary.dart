@@ -28,7 +28,7 @@ class _PrimaryState extends State<Primary> {
         date: DateTime.now());
 
     setState(() {
-      transactions.removeLast();
+      transactions.removeLast(); // this needs to be resolved
       transactions.add(newTransaction);
     });
   }
