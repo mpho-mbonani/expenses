@@ -42,7 +42,7 @@ class _PrimaryState extends State<Primary> {
           IconButton(
               icon: Icon(
                 Icons.add,
-                color: Colors.black,
+                color: Theme.of(context).accentColor,
               ),
               onPressed: () => _createTransactionConnection(context))
         ],
@@ -54,7 +54,7 @@ class _PrimaryState extends State<Primary> {
             Container(
               width: double.infinity,
               child: Card(
-                color: Colors.green,
+                color: Theme.of(context).primaryColorDark,
                 child: Text('Chart'),
                 elevation: 5,
               ),

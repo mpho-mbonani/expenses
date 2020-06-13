@@ -10,7 +10,9 @@ class MyApp extends StatelessWidget {
       title: 'Expenses',
       home: Primary(),
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.yellow,
+        accentColor: Colors.black,
+        fontFamily: 'OpenSans',
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
     );

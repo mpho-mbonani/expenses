@@ -20,10 +20,8 @@ class TransactionsList extends StatelessWidget {
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
-                        color: Colors.green),
+                        color: Theme.of(context).primaryColorDark),
                   ),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.green, width: 2)),
                   padding: EdgeInsets.all(10),
                 ),
                 Column(
@@ -34,7 +32,9 @@ class TransactionsList extends StatelessWidget {
                               fontWeight: FontWeight.bold, fontSize: 16)),
                       Text(
                         DateFormat.yMMMd().format(transactions[index].date),
-                        style: TextStyle(color: Colors.grey),
+                        style: TextStyle(
+                            color:
+                                Theme.of(context).accentColor.withOpacity(0.5)),
                       ),
                     ])
               ]),
