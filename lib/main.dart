@@ -10,14 +10,12 @@ class MyApp extends StatelessWidget {
       title: 'Expenses',
       home: Primary(),
       theme: ThemeData(
-        backgroundColor: Colors.white,
         primarySwatch: Colors.yellow,
         accentColor: Colors.black,
         fontFamily: 'OpenSans',
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       darkTheme: ThemeData(
-        backgroundColor: Colors.white,
         primarySwatch: Colors.yellow,
         accentColor: Colors.black,
         fontFamily: 'OpenSans',
