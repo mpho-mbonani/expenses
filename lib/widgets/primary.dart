@@ -1,7 +1,8 @@
-import 'package:expenses/widgets/Transactions/transactionsList.dart';
 import 'package:flutter/material.dart';
 import '../model/transaction.dart';
 import '../repository/transactionsRepository.dart';
+import 'Statistics/chart.dart';
+import 'Transactions/transactionsList.dart';
 import 'Transactions/transactionsCreation.dart';
 
 class Primary extends StatefulWidget {
@@ -11,6 +12,13 @@ class Primary extends StatefulWidget {
 
 class _PrimaryState extends State<Primary> {
   List<Transaction> transactions = TransactionsRepository().transactions;
+
+  List<Transaction> get recentTransactions {
+    return transactions.where((transaction) {
+      return transaction.date
+          .isAfter(DateTime.now().subtract(Duration(days: 7)));
+    }).toList();
+  }
 
   void _createTransactionConnection(BuildContext ctx) {
     showModalBottomSheet(
@@ -51,14 +59,7 @@ class _PrimaryState extends State<Primary> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Container(
-              width: double.infinity,
-              child: Card(
-                color: Theme.of(context).primaryColorDark,
-                child: Text('Chart'),
-                elevation: 5,
-              ),
-            ),
+            Chart(recentTransactions),
             TransactionsList(transactions)
           ],
         ),

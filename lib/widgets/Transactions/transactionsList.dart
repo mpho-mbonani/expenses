@@ -12,7 +12,7 @@ class TransactionsList extends StatelessWidget {
         child: transactions.isEmpty
             ? Column(children: <Widget>[
                 Container(
-                    height: 200,
+                    height: 300,
                     child: Image.asset('assets/images/waiting.gif',
                         fit: BoxFit.cover)),
                 SizedBox(height: 20),
