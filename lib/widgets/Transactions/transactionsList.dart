@@ -20,7 +20,37 @@ class TransactionsList extends StatelessWidget {
               ])
             : ListView.builder(
                 itemBuilder: (ctx, index) {
-                  return ListTile();
+                  return Card(
+                    elevation: 5,
+                    margin: EdgeInsets.symmetric(vertical: 8, horizontal: 5),
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        radius: 30,
+                        backgroundColor: Colors.white,
+                        child: Padding(
+                          padding: EdgeInsets.all(5),
+                          child: FittedBox(
+                            child: Text(
+                              'R ${transactions[index].amount.toStringAsFixed(2)}',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                  color: Theme.of(context).primaryColorDark),
+                            ),
+                          ),
+                        ),
+                      ),
+                      title: Text(transactions[index].title,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 16)),
+                      subtitle: Text(
+                        DateFormat.yMMMd().format(transactions[index].date),
+                        style: TextStyle(
+                            color:
+                                Theme.of(context).accentColor.withOpacity(0.5)),
+                      ),
+                    ),
+                  );
                 },
                 itemCount: transactions.length));
   }
