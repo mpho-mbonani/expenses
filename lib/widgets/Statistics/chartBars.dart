@@ -28,8 +28,10 @@ class ChartBar extends StatelessWidget {
                 heightFactor: totalSpendingPercentage,
                 child: Container(
                     decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColorDark,
-                        borderRadius: BorderRadius.circular(10))),
+                  color: Theme.of(context).primaryColorDark,
+                  borderRadius: BorderRadius.circular(10),
+                  // the bars have to be inverted
+                )),
               )
             ],
           ),
