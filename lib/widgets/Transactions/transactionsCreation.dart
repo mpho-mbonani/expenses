@@ -58,26 +58,28 @@ class _TransactionsCreationState extends State<TransactionsCreation> {
                   onSubmitted: (_) => submitData(),
                 ),
                 Container(
-                  height: 70,
-                  child: Row(children: <Widget>[
-                    Text(_selectedDate == null
-                        ? 'No Date Selected'
-                        : DateFormat.yMd().format(_selectedDate)),
-                    FlatButton(
+                  height: 80,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      FlatButton(
+                        padding: EdgeInsets.symmetric(horizontal: 0),
                         onPressed: _openDatePicker,
-                        child: Text('Select Date',
+                        child: Text(_selectedDate == null
+                            ? 'Select Date'
+                            : DateFormat.yMMMd().format(_selectedDate)),
+                      ),
+                      FlatButton(
+                        child: Text('Add Transaction',
                             style: TextStyle(fontWeight: FontWeight.bold)),
-                        textColor: Theme.of(context).primaryColorDark)
-                  ]),
+                        textColor: Theme.of(context).primaryColorDark,
+                        onPressed: submitData,
+                        // there's something wrong here, button adds null transaction before method is called
+                        // seems like one click on add transaction triggers two, one with an empty form and the next with data
+                      )
+                    ],
+                  ),
                 ),
-                FlatButton(
-                  child: Text('Add Transaction',
-                      style: TextStyle(fontWeight: FontWeight.bold)),
-                  textColor: Theme.of(context).primaryColorDark,
-                  onPressed: submitData,
-                  // there's something wrong here, button adds null transaction before method is called
-                  // seems like one click on add transaction triggers two, one with an empty form and the next with data
-                )
               ]),
         ));
   }
