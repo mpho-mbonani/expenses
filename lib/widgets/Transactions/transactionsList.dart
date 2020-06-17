@@ -52,7 +52,7 @@ class TransactionsList extends StatelessWidget {
                       ),
                       trailing: IconButton(
                           icon: Icon(Icons.delete),
-                          color: Colors.grey,
+                          color: Color.fromRGBO(220, 220, 220, 1),
                           onPressed: () =>
                               deleteTransaction(transactions[index].id)),
                     ),
