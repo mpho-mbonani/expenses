@@ -27,14 +27,17 @@ class ChartBar extends StatelessWidget {
                     color: Color.fromRGBO(220, 220, 220, 1),
                     borderRadius: BorderRadius.circular(10)),
               ),
-              FractionallySizedBox(
-                heightFactor: totalSpendingPercentage,
-                child: Container(
-                    decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColorDark,
-                  borderRadius: BorderRadius.circular(10),
-                  // the bars have to be inverted
-                )),
+              Container(
+                alignment: AlignmentDirectional.bottomEnd,
+                child: FractionallySizedBox(
+                  heightFactor: totalSpendingPercentage,
+                  child: Container(
+                      decoration: BoxDecoration(
+                    color: Theme.of(context).primaryColorDark,
+                    borderRadius: BorderRadius.circular(10),
+                    // the bars have to be inverted
+                  )),
+                ),
               )
             ],
           ),
