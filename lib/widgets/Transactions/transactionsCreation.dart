@@ -15,9 +15,11 @@ class _TransactionsCreationState extends State<TransactionsCreation> {
 
   void submitData() {
     final title = _titleController.text;
-    final amount = double.parse(_amountController.text);
-    if (title.isNotEmpty && amount > 0) {
-      widget.createTransaction(title, amount);
+    final amount = (_amountController.text.isNotEmpty)
+        ? double.parse(_amountController.text)
+        : 0;
+    if (title.isNotEmpty && amount > 0 && _selectedDate != null) {
+      widget.createTransaction(title, amount, _selectedDate);
       Navigator.of(context).pop();
     }
   }

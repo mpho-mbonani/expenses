@@ -28,12 +28,13 @@ class _PrimaryState extends State<Primary> {
         });
   }
 
-  void _createTransaction(String transactionTitle, double transactionAmount) {
+  void _createTransaction(String transactionTitle, double transactionAmount,
+      DateTime selectedDate) {
     final newTransaction = Transaction(
         id: (transactions.length++).toString(),
         title: transactionTitle,
         amount: transactionAmount,
-        date: DateTime.now());
+        date: selectedDate);
 
     setState(() {
       transactions.removeLast(); // this needs to be resolved
