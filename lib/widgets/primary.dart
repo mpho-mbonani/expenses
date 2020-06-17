@@ -51,9 +51,8 @@ class _PrimaryState extends State<Primary> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
-        backgroundColor: Colors.white,
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
