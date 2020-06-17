@@ -40,9 +40,19 @@ class _TransactionsCreationState extends State<TransactionsCreation> {
                   keyboardType: TextInputType.number,
                   onSubmitted: (_) => submitData(),
                 ),
+                Container(
+                  height: 70,
+                  child: Row(children: <Widget>[
+                    Text('No Date Selected'),
+                    FlatButton(
+                      onPressed: (){},
+                      child: Text('Select Date', style: TextStyle(fontWeight: FontWeight.bold)),
+                      textColor: Theme.of(context).primaryColorDark)
+                  ]),
+                ),
                 FlatButton(
-                  child: Text('Add Transaction'),
-                  textColor: Colors.green,
+                  child: Text('Add Transaction', style: TextStyle(fontWeight: FontWeight.bold)),
+                  textColor: Theme.of(context).primaryColorDark,
                   onPressed: submitData,
                   // there's something wrong here, button adds null transaction before method is called
                   // seems like one click on add transaction triggers two, one with an empty form and the next with data
