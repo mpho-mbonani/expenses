@@ -42,6 +42,12 @@ class _PrimaryState extends State<Primary> {
     });
   }
 
+  void _deleteTransaction(String id) {
+    setState(() {
+      transactions.removeWhere((transaction) => transaction.id == id);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,7 +80,7 @@ class _PrimaryState extends State<Primary> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Chart(recentTransactions),
-            TransactionsList(transactions)
+            TransactionsList(transactions, _deleteTransaction)
           ],
         ),
       ),

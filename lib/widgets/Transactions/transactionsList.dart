@@ -4,7 +4,8 @@ import '../../model/transaction.dart';
 
 class TransactionsList extends StatelessWidget {
   final List<Transaction> transactions;
-  TransactionsList(this.transactions);
+  final Function deleteTransaction;
+  TransactionsList(this.transactions, this.deleteTransaction);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -49,6 +50,11 @@ class TransactionsList extends StatelessWidget {
                             color:
                                 Theme.of(context).accentColor.withOpacity(0.5)),
                       ),
+                      trailing: IconButton(
+                          icon: Icon(Icons.delete),
+                          color: Colors.grey,
+                          onPressed: () =>
+                              deleteTransaction(transactions[index].id)),
                     ),
                   );
                 },
