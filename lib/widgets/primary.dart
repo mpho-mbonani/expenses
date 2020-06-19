@@ -50,6 +50,9 @@ class _PrimaryState extends State<Primary> {
 
   @override
   Widget build(BuildContext context) {
+    final isPortrait =
+        MediaQuery.of(context).orientation == Orientation.portrait;
+
     final appBar = AppBar(
       leading: Builder(
         builder: (BuildContext context) {
@@ -76,24 +79,25 @@ class _PrimaryState extends State<Primary> {
     final appBarAndStatusBarHeight =
         appBar.preferredSize.height - MediaQuery.of(context).padding.top;
 
+    final chart = Container(
+        height:
+            (MediaQuery.of(context).size.height - appBarAndStatusBarHeight) *
+                0.3,
+        child: Chart(recentTransactions));
+
+    final transactionList = Container(
+        height:
+            (MediaQuery.of(context).size.height - appBarAndStatusBarHeight) *
+                0.7,
+        child: TransactionsList(transactions, _deleteTransaction));
+
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       appBar: appBar,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Container(
-                height: (MediaQuery.of(context).size.height -
-                        appBarAndStatusBarHeight) *
-                    0.3,
-                child: Chart(recentTransactions)),
-            Container(
-                height: (MediaQuery.of(context).size.height -
-                        appBarAndStatusBarHeight) *
-                    0.7,
-                child: TransactionsList(transactions, _deleteTransaction))
-          ],
+          children: <Widget>[chart, transactionList],
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
