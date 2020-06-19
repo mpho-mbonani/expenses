@@ -20,9 +20,9 @@ class _PrimaryState extends State<Primary> {
     }).toList();
   }
 
-  void _createTransactionConnection(BuildContext ctx) {
+  void _createTransactionConnection(BuildContext context) {
     showModalBottomSheet(
-        context: ctx,
+        context: context,
         builder: (_) {
           return TransactionsCreation(_createTransaction);
         });
@@ -50,36 +50,49 @@ class _PrimaryState extends State<Primary> {
 
   @override
   Widget build(BuildContext context) {
+    final appBar = AppBar(
+      leading: Builder(
+        builder: (BuildContext context) {
+          return IconButton(
+            icon: const Icon(Icons.menu),
+            color: Theme.of(context).accentColor,
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+            tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+          );
+        },
+      ),
+      actions: <Widget>[
+        IconButton(
+            icon: Icon(
+              Icons.add,
+              color: Theme.of(context).accentColor,
+            ),
+            onPressed: () => _createTransactionConnection(context))
+      ],
+    );
+
+    final appBarAndStatusBarHeight =
+        appBar.preferredSize.height - MediaQuery.of(context).padding.top;
+
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
-      appBar: AppBar(
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(Icons.menu),
-              color: Theme.of(context).accentColor,
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-            );
-          },
-        ),
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(
-                Icons.add,
-                color: Theme.of(context).accentColor,
-              ),
-              onPressed: () => _createTransactionConnection(context))
-        ],
-      ),
+      appBar: appBar,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Chart(recentTransactions),
-            TransactionsList(transactions, _deleteTransaction)
+            Container(
+                height: (MediaQuery.of(context).size.height -
+                        appBarAndStatusBarHeight) *
+                    0.3,
+                child: Chart(recentTransactions)),
+            Container(
+                height: (MediaQuery.of(context).size.height -
+                        appBarAndStatusBarHeight) *
+                    0.7,
+                child: TransactionsList(transactions, _deleteTransaction))
           ],
         ),
       ),
