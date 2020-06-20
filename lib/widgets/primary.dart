@@ -50,8 +50,8 @@ class _PrimaryState extends State<Primary> {
 
   @override
   Widget build(BuildContext context) {
-    final isPortrait =
-        MediaQuery.of(context).orientation == Orientation.portrait;
+    final mediaQuery = MediaQuery.of(context);
+    final isPortrait = mediaQuery.orientation == Orientation.portrait;
 
     final appBar = AppBar(
       leading: Builder(
@@ -77,18 +77,14 @@ class _PrimaryState extends State<Primary> {
     );
 
     final appBarAndStatusBarHeight =
-        appBar.preferredSize.height - MediaQuery.of(context).padding.top;
+        appBar.preferredSize.height - mediaQuery.padding.top;
 
     final chart = Container(
-        height:
-            (MediaQuery.of(context).size.height - appBarAndStatusBarHeight) *
-                0.3,
+        height: (mediaQuery.size.height - appBarAndStatusBarHeight) * 0.3,
         child: Chart(recentTransactions));
 
     final transactionList = Container(
-        height:
-            (MediaQuery.of(context).size.height - appBarAndStatusBarHeight) *
-                0.7,
+        height: (mediaQuery.size.height - appBarAndStatusBarHeight) * 0.7,
         child: TransactionsList(transactions, _deleteTransaction));
 
     return Scaffold(
