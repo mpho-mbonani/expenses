@@ -41,48 +41,55 @@ class _TransactionsCreationState extends State<TransactionsCreation> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-        elevation: 5,
-        child: Container(
-          padding: EdgeInsets.all(15),
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: <Widget>[
-                TextField(
-                  decoration: InputDecoration(labelText: 'Title'),
-                  controller: _titleController,
-                  onSubmitted: (_) => submitData(),
-                ),
-                TextField(
-                  decoration: InputDecoration(labelText: 'Amount'),
-                  controller: _amountController,
-                  keyboardType: TextInputType.number,
-                  onSubmitted: (_) => submitData(),
-                ),
-                Container(
-                  height: 80,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      FlatButton(
-                        padding: EdgeInsets.symmetric(horizontal: 0),
-                        onPressed: _openDatePicker,
-                        child: Text(_selectedDate == null
-                            ? 'Select Date'
-                            : DateFormat.yMMMd().format(_selectedDate)),
-                      ),
-                      FlatButton(
-                        child: Text('Add Transaction',
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                        textColor: Theme.of(context).primaryColorDark,
-                        onPressed: submitData,
-                        // there's something wrong here, button adds null transaction before method is called
-                        // seems like one click on add transaction triggers two, one with an empty form and the next with data
-                      )
-                    ],
+    return SingleChildScrollView(
+      child: Card(
+          elevation: 5,
+          child: Container(
+            padding: EdgeInsets.only(
+              top: 10,
+              left: 10,
+              right: 10,
+              bottom: MediaQuery.of(context).viewInsets.bottom + 10,
+            ),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Title'),
+                    controller: _titleController,
+                    onSubmitted: (_) => submitData(),
                   ),
-                ),
-              ]),
-        ));
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Amount'),
+                    controller: _amountController,
+                    keyboardType: TextInputType.number,
+                    onSubmitted: (_) => submitData(),
+                  ),
+                  Container(
+                    height: 80,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        FlatButton(
+                          padding: EdgeInsets.symmetric(horizontal: 0),
+                          onPressed: _openDatePicker,
+                          child: Text(_selectedDate == null
+                              ? 'Select Date'
+                              : DateFormat.yMMMd().format(_selectedDate)),
+                        ),
+                        FlatButton(
+                          child: Text('Add Transaction',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          textColor: Theme.of(context).primaryColorDark,
+                          onPressed: submitData,
+                          // there's something wrong here, button adds null transaction before method is called
+                          // seems like one click on add transaction triggers two, one with an empty form and the next with data
+                        )
+                      ],
+                    ),
+                  ),
+                ]),
+          )),
+    );
   }
 }
