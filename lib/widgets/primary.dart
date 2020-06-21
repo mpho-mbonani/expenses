@@ -57,7 +57,7 @@ class _PrimaryState extends State<Primary> {
       leading: Builder(
         builder: (BuildContext context) {
           return IconButton(
-            icon: const Icon(Icons.menu),
+            icon: const Icon(Icons.more_vert),
             color: Theme.of(context).accentColor,
             onPressed: () {
               Scaffold.of(context).openDrawer();
@@ -69,7 +69,11 @@ class _PrimaryState extends State<Primary> {
       actions: <Widget>[
         IconButton(
             icon: Icon(
-              Icons.add,
+              Icons.tune,
+              // Icons.assessment,
+              // Icons.assignment,
+              // Icons.crop_free,
+              // Icons.payment,
               color: Theme.of(context).accentColor,
             ),
             onPressed: () => _createTransactionConnection(context))

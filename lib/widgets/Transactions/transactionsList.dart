@@ -51,7 +51,7 @@ class TransactionsList extends StatelessWidget {
                   ),
                   trailing: MediaQuery.of(context).size.width > 460
                       ? FlatButton.icon(
-                          icon: Icon(Icons.delete),
+                          icon: Icon(Icons.delete_outline),
                           label: Text('Delete'),
                           textColor: Color.fromRGBO(220, 220, 220, 1),
                           onPressed: () =>
