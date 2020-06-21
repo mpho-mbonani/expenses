@@ -70,10 +70,12 @@ class _PrimaryState extends State<Primary> {
         IconButton(
             icon: Icon(
               Icons.tune,
-              // Icons.assessment,
+              // Icons.bar_chart,
               // Icons.assignment,
+              // Icons.receipt,
               // Icons.crop_free,
               // Icons.payment,
+              // Icons.contactless,
               color: Theme.of(context).accentColor,
             ),
             onPressed: () => _createTransactionConnection(context))
