@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter/services.dart';
-import 'widgets/primary.dart';
+import 'widgets/home.dart';
 
 void main() {
   // Portrait mode only
@@ -13,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Primary(),
+        home: Home(),
         theme: ThemeData(
           backgroundColor: Colors.white,
           primarySwatch: Colors.yellow,
