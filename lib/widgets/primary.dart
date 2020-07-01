@@ -156,19 +156,39 @@ class _PrimaryState extends State<Primary> {
     );
 
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
-      appBar: appBar,
-      drawer: drawer,
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[chart, transactionList],
+        backgroundColor: Theme.of(context).backgroundColor,
+        appBar: appBar,
+        drawer: drawer,
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[chart, transactionList],
+          ),
         ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.add),
-          onPressed: () => _createTransactionConnection(context)),
-    );
+          onPressed: () => _createTransactionConnection(context),
+        ),
+        bottomNavigationBar: BottomAppBar(
+          color: Color.fromRGBO(220, 220, 220, 1),
+          shape: CircularNotchedRectangle(),
+          child: IconTheme(
+            data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                IconButton(
+                  icon: Icon(Icons.content_paste),
+                  onPressed: () {},
+                ),
+                IconButton(
+                  icon: Icon(Icons.equalizer),
+                  onPressed: () {},
+                ),
+              ],
+            ),
+          ),
+        ));
   }
 }
