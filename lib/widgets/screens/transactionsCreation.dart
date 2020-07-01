@@ -78,7 +78,7 @@ class _TransactionsCreationState extends State<TransactionsCreation> {
                               : DateFormat.yMMMd().format(_selectedDate)),
                         ),
                         FlatButton(
-                          child: Text('Add Transaction',
+                          child: const Text('Add Transaction',
                               style: TextStyle(fontWeight: FontWeight.bold)),
                           textColor: Theme.of(context).primaryColorDark,
                           onPressed: submitData,

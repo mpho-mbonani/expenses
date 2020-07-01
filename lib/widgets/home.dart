@@ -107,7 +107,7 @@ class _HomeState extends State<Home> {
             decoration: BoxDecoration(),
           ),
           ListTile(
-            title: Text('Item 1'),
+            title: const Text('Item 1'),
             onTap: () {
               // Update the state of the app
               // ...
@@ -116,7 +116,7 @@ class _HomeState extends State<Home> {
             },
           ),
           ListTile(
-            title: Text('Item 2'),
+            title: const Text('Item 2'),
             onTap: () {
               // Update the state of the app
               // ...
@@ -125,7 +125,7 @@ class _HomeState extends State<Home> {
             },
           ),
           ListTile(
-            title: Text('Item 3'),
+            title: const Text('Item 3'),
             onTap: () {
               // Update the state of the app
               // ...
@@ -134,7 +134,7 @@ class _HomeState extends State<Home> {
             },
           ),
           ListTile(
-            title: Text('Item 4'),
+            title: const Text('Item 4'),
             onTap: () {
               // Update the state of the app
               // ...
@@ -143,7 +143,7 @@ class _HomeState extends State<Home> {
             },
           ),
           ListTile(
-            title: Text('Item 5'),
+            title: const Text('Item 5'),
             onTap: () {
               // Update the state of the app
               // ...
@@ -167,7 +167,7 @@ class _HomeState extends State<Home> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
+          child: const Icon(Icons.add),
           onPressed: () => _createTransactionConnection(context)),
     );
   }

@@ -16,7 +16,8 @@ class TransactionsList extends StatelessWidget {
                   child: Image.asset('assets/images/waiting.gif',
                       fit: BoxFit.cover)),
               SizedBox(height: constraints.maxHeight * 0.1),
-              Text('No Transactions Added', style: TextStyle(fontSize: 16))
+              const Text('No Transactions Added',
+                  style: TextStyle(fontSize: 16))
             ]);
           })
         : ListView.builder(
@@ -34,33 +35,38 @@ class TransactionsList extends StatelessWidget {
                         child: Text(
                           'R ${transactions[index].amount.toStringAsFixed(2)}',
                           style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                              color: Theme.of(context).primaryColorDark),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Theme.of(context).primaryColorDark,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                  title: Text(transactions[index].title,
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                  title: Text(
+                    transactions[index].title,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
                   subtitle: Text(
                     DateFormat.yMMMd().format(transactions[index].date),
                     style: TextStyle(
-                        color: Theme.of(context).accentColor.withOpacity(0.5)),
+                      color: Theme.of(context).accentColor.withOpacity(0.5),
+                    ),
                   ),
                   trailing: MediaQuery.of(context).size.width > 460
                       ? FlatButton.icon(
-                          icon: Icon(Icons.delete_outline),
-                          label: Text('Delete'),
+                          icon: const Icon(Icons.delete_outline),
+                          label: const Text('Delete'),
                           textColor: Color.fromRGBO(220, 220, 220, 1),
                           onPressed: () =>
-                              deleteTransaction(transactions[index].id))
+                              deleteTransaction(transactions[index].id),
+                        )
                       : IconButton(
-                          icon: Icon(Icons.delete),
+                          icon: const Icon(Icons.delete),
                           color: Color.fromRGBO(220, 220, 220, 1),
                           onPressed: () =>
-                              deleteTransaction(transactions[index].id)),
+                              deleteTransaction(transactions[index].id),
+                        ),
                 ),
               );
             },
