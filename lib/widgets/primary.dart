@@ -54,28 +54,10 @@ class _PrimaryState extends State<Primary> {
     final isPortrait = mediaQuery.orientation == Orientation.portrait;
 
     final appBar = AppBar(
-      // leading: Builder(
-      //   builder: (BuildContext context) {
-      //     return IconButton(
-      //       icon: const Icon(Icons.more_vert),
-      //       color: Theme.of(context).accentColor,
-      //       onPressed: () {
-      //         Scaffold.of(context).openDrawer();
-      //       },
-      //       tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-      //     );
-      //   },
-      // ),
       actions: <Widget>[
         IconButton(
             icon: Icon(
               Icons.tune,
-              // Icons.bar_chart,
-              // Icons.assignment,
-              // Icons.receipt,
-              // Icons.crop_free,
-              // Icons.payment,
-              // Icons.contactless,
               color: Theme.of(context).accentColor,
             ),
             onPressed: () => _createTransactionConnection(context))
@@ -94,12 +76,8 @@ class _PrimaryState extends State<Primary> {
         child: TransactionsList(transactions, _deleteTransaction));
 
     final drawer = Drawer(
-      // Add a ListView to the drawer. This ensures the user can scroll
-      // through the options in the drawer if there isn't enough vertical
-      // space to fit everything.
       elevation: 5,
       child: ListView(
-        // Important: Remove any padding from the ListView.
         padding: EdgeInsets.all(10),
         children: <Widget>[
           DrawerHeader(
@@ -109,45 +87,30 @@ class _PrimaryState extends State<Primary> {
           ListTile(
             title: const Text('Item 1'),
             onTap: () {
-              // Update the state of the app
-              // ...
-              // Then close the drawer
               Navigator.pop(context);
             },
           ),
           ListTile(
             title: const Text('Item 2'),
             onTap: () {
-              // Update the state of the app
-              // ...
-              // Then close the drawer
               Navigator.pop(context);
             },
           ),
           ListTile(
             title: const Text('Item 3'),
             onTap: () {
-              // Update the state of the app
-              // ...
-              // Then close the drawer
               Navigator.pop(context);
             },
           ),
           ListTile(
             title: const Text('Item 4'),
             onTap: () {
-              // Update the state of the app
-              // ...
-              // Then close the drawer
               Navigator.pop(context);
             },
           ),
           ListTile(
             title: const Text('Item 5'),
             onTap: () {
-              // Update the state of the app
-              // ...
-              // Then close the drawer
               Navigator.pop(context);
             },
           ),
@@ -165,11 +128,11 @@ class _PrimaryState extends State<Primary> {
             children: <Widget>[chart, transactionList],
           ),
         ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.add),
-          onPressed: () => _createTransactionConnection(context),
+          child: Icon(Icons.add),
+          onPressed: () => {},
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: BottomAppBar(
           color: Color.fromRGBO(220, 220, 220, 1),
           shape: CircularNotchedRectangle(),
