@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class TransactionsCreation extends StatefulWidget {
+class CreateTransaction extends StatefulWidget {
   final Function createTransaction;
-  TransactionsCreation(this.createTransaction);
+  CreateTransaction(this.createTransaction);
   @override
-  _TransactionsCreationState createState() => _TransactionsCreationState();
+  _CreateTransactionState createState() => _CreateTransactionState();
 }
 
-class _TransactionsCreationState extends State<TransactionsCreation> {
+class _CreateTransactionState extends State<CreateTransaction> {
   final _titleController = TextEditingController();
   final _amountController = TextEditingController();
   DateTime _selectedDate;

@@ -1,0 +1,31 @@
+import 'package:expenses/widgets/transactions/transactionItem.dart';
+import 'package:flutter/material.dart';
+import '../../model/transaction.dart';
+
+class TransactionsList extends StatelessWidget {
+  final List<Transaction> transactions;
+  final Function deleteTransaction;
+  TransactionsList(this.transactions, this.deleteTransaction);
+  @override
+  Widget build(BuildContext context) {
+    return transactions.isEmpty
+        ? LayoutBuilder(builder: (context, constraints) {
+            return Column(children: <Widget>[
+              Container(
+                  height: constraints.maxHeight * 0.5,
+                  child: Image.asset('assets/images/waiting.gif',
+                      fit: BoxFit.cover)),
+              SizedBox(height: constraints.maxHeight * 0.1),
+              const Text('No Transactions Added',
+                  style: TextStyle(fontSize: 16))
+            ]);
+          })
+        : ListView.builder(
+            itemBuilder: (context, index) {
+              return TransactionItem(
+                  transaction: transactions[index],
+                  deleteTransaction: deleteTransaction);
+            },
+            itemCount: transactions.length);
+  }
+}

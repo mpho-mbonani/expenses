@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'metrics/chart.dart';
-import 'screens/transactionsList.dart';
-import 'screens/transactionsCreation.dart';
+import 'transactions/listTransactions.dart';
+import 'transactions/createTransaction.dart';
 import '../model/transaction.dart';
 import '../repository/transactionsRepository.dart';
 
-class Home extends StatefulWidget {
+class Primary extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  _PrimaryState createState() => _PrimaryState();
 }
 
-class _HomeState extends State<Home> {
+class _PrimaryState extends State<Primary> {
   List<Transaction> transactions = TransactionsRepository().transactions;
 
   List<Transaction> get recentTransactions {
@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
     showModalBottomSheet(
         context: context,
         builder: (_) {
-          return TransactionsCreation(_createTransaction);
+          return CreateTransaction(_createTransaction);
         });
   }
 
