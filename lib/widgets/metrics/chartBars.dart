@@ -37,7 +37,9 @@ class ChartBar extends StatelessWidget {
                     heightFactor: totalSpendingPercentage,
                     child: Container(
                         decoration: BoxDecoration(
-                      color: Theme.of(context).primaryColorDark,
+                      color: Colors.amber,
+                      // expense bar colours should be red amber green
+                      // based on categories expense revenue profit
                       borderRadius: BorderRadius.circular(10),
                       // the bars have to be inverted
                     )),
