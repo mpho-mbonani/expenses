@@ -130,7 +130,7 @@ class _PrimaryState extends State<Primary> {
         ),
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
-          onPressed: () => {},
+          onPressed: () => _createTransactionConnection(context),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: BottomAppBar(
