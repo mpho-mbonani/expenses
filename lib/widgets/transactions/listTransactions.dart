@@ -12,9 +12,10 @@ class TransactionsList extends StatelessWidget {
         ? LayoutBuilder(builder: (context, constraints) {
             return Column(children: <Widget>[
               Container(
-                  height: constraints.maxHeight * 0.5,
-                  child: Image.asset('assets/images/waiting.gif',
-                      fit: BoxFit.cover)),
+                height: constraints.maxHeight * 0.5,
+                child:
+                    Image.asset('assets/images/waiting.gif', fit: BoxFit.cover),
+              ),
               SizedBox(height: constraints.maxHeight * 0.1),
               const Text('No Transactions Added',
                   style: TextStyle(fontSize: 16))

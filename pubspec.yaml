@@ -21,6 +21,8 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  material_design_icons_flutter: ^4.0.5345
+  outline_material_icons: ^0.1.1
   flutter:
     sdk: flutter
   intl: ^0.16.1

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'metrics/chart.dart';
 import 'transactions/listTransactions.dart';
 import 'transactions/createTransaction.dart';
@@ -134,7 +135,7 @@ class _PrimaryState extends State<Primary> {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: BottomAppBar(
-          color: Color.fromRGBO(220, 220, 220, 1),
+          color: Theme.of(context).backgroundColor,
           shape: CircularNotchedRectangle(),
           child: IconTheme(
             data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
@@ -142,11 +143,11 @@ class _PrimaryState extends State<Primary> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 IconButton(
-                  icon: Icon(Icons.content_paste),
+                  icon: Icon(Icons.subject),
                   onPressed: () {},
                 ),
                 IconButton(
-                  icon: Icon(Icons.equalizer),
+                  icon: Icon(MdiIcons.chartDonut),
                   onPressed: () {},
                 ),
               ],
