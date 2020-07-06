@@ -38,7 +38,7 @@ class _PrimaryState extends State<Primary> {
         date: selectedDate);
 
     setState(() {
-      transactions.removeLast(); // this needs to be resolved
+      transactions.removeLast(); // TODO: this needs to be resolved
       transactions.add(newTransaction);
     });
   }
