@@ -21,14 +21,21 @@ class TransactionsList extends StatelessWidget {
                   style: TextStyle(fontSize: 16))
             ]);
           })
-        : ListView(
-            children: transactions
-                .map(
-                  (transaction) => TransactionItem(
-                      key: ValueKey(transaction.id),
-                      transaction: transaction,
-                      deleteTransaction: deleteTransaction),
-                )
-                .toList());
+        : Card(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            borderOnForeground: false,
+            elevation: 4,
+            margin: EdgeInsets.all(8),
+            child: ListView(
+                children: transactions
+                    .map(
+                      (transaction) => TransactionItem(
+                          key: ValueKey(transaction.id),
+                          transaction: transaction,
+                          deleteTransaction: deleteTransaction),
+                    )
+                    .toList()),
+          );
   }
 }

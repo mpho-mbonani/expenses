@@ -55,6 +55,8 @@ class _PrimaryState extends State<Primary> {
     final isPortrait = mediaQuery.orientation == Orientation.portrait;
 
     final appBar = AppBar(
+      elevation: 0,
+      toolbarHeight: 40.0,
       actions: <Widget>[
         IconButton(
             icon: Icon(
@@ -64,17 +66,6 @@ class _PrimaryState extends State<Primary> {
             onPressed: () => _createTransactionConnection(context))
       ],
     );
-
-    final appBarAndStatusBarHeight =
-        appBar.preferredSize.height - mediaQuery.padding.top;
-
-    final chart = Container(
-        height: (mediaQuery.size.height - appBarAndStatusBarHeight) * 0.3,
-        child: Chart(recentTransactions));
-
-    final transactionList = Container(
-        height: (mediaQuery.size.height - appBarAndStatusBarHeight) * 0.7,
-        child: TransactionsList(transactions, _deleteTransaction));
 
     final drawer = Drawer(
       elevation: 5,
@@ -123,34 +114,72 @@ class _PrimaryState extends State<Primary> {
         backgroundColor: Theme.of(context).backgroundColor,
         appBar: appBar,
         drawer: drawer,
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[chart, transactionList],
-          ),
-        ),
+        body: Container(
+            height: (mediaQuery.size.height -
+                80.0 -
+                MediaQuery.of(context).padding.top),
+            child: Card(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              borderOnForeground: false,
+              elevation: 4,
+              margin: EdgeInsets.all(8),
+              child: LayoutBuilder(builder: (context, constraints) {
+                return (isPortrait)
+                    ? Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Container(
+                              height: (constraints.maxHeight) * 0.3,
+                              child: Chart(recentTransactions)),
+                          Container(
+                              height: (constraints.maxHeight) * 0.7,
+                              child: TransactionsList(
+                                  transactions, _deleteTransaction))
+                        ],
+                      )
+                    : Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Container(
+                              width: constraints.maxWidth * 0.5,
+                              height: constraints.maxHeight * 0.5,
+                              child: Chart(recentTransactions)),
+                          Container(
+                              width: constraints.maxWidth * 0.5,
+                              height: constraints.maxHeight,
+                              child: TransactionsList(
+                                  transactions, _deleteTransaction))
+                        ],
+                      );
+              }),
+            )),
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
           onPressed: () => _createTransactionConnection(context),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: BottomAppBar(
-          color: Theme.of(context).backgroundColor,
-          shape: CircularNotchedRectangle(),
-          child: IconTheme(
-            data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                IconButton(
-                  icon: Icon(Icons.subject),
-                  onPressed: () {},
-                ),
-                IconButton(
-                  icon: Icon(MdiIcons.chartDonut),
-                  onPressed: () {},
-                ),
-              ],
+        bottomNavigationBar: Container(
+          height: 40.0,
+          child: BottomAppBar(
+            color: Theme.of(context).backgroundColor,
+            shape: CircularNotchedRectangle(),
+            child: IconTheme(
+              data:
+                  IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  IconButton(
+                    icon: Icon(Icons.subject),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    icon: Icon(MdiIcons.chartDonut),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
             ),
           ),
         ));
