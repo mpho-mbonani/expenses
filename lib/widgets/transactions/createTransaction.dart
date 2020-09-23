@@ -43,7 +43,11 @@ class _CreateTransactionState extends State<CreateTransaction> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Card(
-          elevation: 5,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+          borderOnForeground: false,
+          elevation: 4,
+          margin: EdgeInsets.all(8),
           child: Container(
             padding: EdgeInsets.only(
               top: 10,

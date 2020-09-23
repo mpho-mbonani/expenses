@@ -23,6 +23,7 @@ class _PrimaryState extends State<Primary> {
 
   void _createTransactionConnection(BuildContext context) {
     showModalBottomSheet(
+        backgroundColor: Colors.transparent,
         context: context,
         builder: (_) {
           return CreateTransaction(_createTransaction);
